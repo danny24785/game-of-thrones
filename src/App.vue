@@ -1,21 +1,29 @@
 <template>
   <div id="app">
     <HelloWorld msg="Winter is coming"/>
-    <pre>
-    <!-- {{ characters }} -->
 
-    <!--
+    <div class="filters">
+      Gender: 
+      <select>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Not specified</option>
+      </select>
 
-      Feed is paginated, use ?use=<page-number> to navigate between pages
+      IsAlive: 
+      <select>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
 
-      -->
-    </pre>
     <ol>
       <li v-for="character in characters" v-bind:key="character.id" class="character-details">
         <ul>
           <li v-if="character.name">Name: {{ character.name }}</li>
           <li v-if="character.gender">Gender: {{ character.gender }}</li>
-          <li v-if="character.died">Is alive: {{ character.died }}</li>
+          <li v-if="!character.died">Is alive: Yes</li>
+          <li v-else>Is alive: No ( died {{ character.died }} )</li>
         </ul>
       </li>  
     </ol>

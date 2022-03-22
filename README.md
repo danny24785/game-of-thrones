@@ -14,6 +14,10 @@ Changelog
 - Wrap character details ul in li of an ordered list, so the list of characters is numbered
 - Styling to add some whitespace between characters 
 
+22-03-2022 - Verion 0.0.4:
+- Fixed IsAlive bullet, now shows yes if no data, shows no if there is data
+- Added location and date of death in parentheses if IsAlive = no
+- Added Gender and IsAlive dropdown placeholders for filters
 
 
 
