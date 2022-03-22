@@ -3,12 +3,22 @@
     <HelloWorld msg="Winter is coming"/>
     <pre>
     <!-- {{ characters }} -->
+
+    <!--
+
+      Feed is paginated, use ?use=<page-number> to navigate between pages
+
+      -->
     </pre>
-    <ul v-for="character in characters" v-bind:key="character.id">
-      <li>Name: {{ character.name }}</li>
-      <li>Gender: {{ character.gender }}</li>
-      <li>Is alive: {{ character.died }}</li>
-    </ul>
+    <ol>
+      <li v-for="character in characters" v-bind:key="character.id" class="character-details">
+        <ul>
+          <li v-if="character.name">Name: {{ character.name }}</li>
+          <li v-if="character.gender">Gender: {{ character.gender }}</li>
+          <li v-if="character.died">Is alive: {{ character.died }}</li>
+        </ul>
+      </li>  
+    </ol>
   </div>
 </template>
 
@@ -26,7 +36,7 @@ export default {
   },
   mounted(){
     axios
-      .get('https://anapioficeandfire.com/api/characters/')
+      .get('https://anapioficeandfire.com/api/characters?page=1&pageSize=40')
       .then((response)=>{
         this.characters=response.data;
         console.warn(response)
@@ -49,5 +59,9 @@ export default {
 <style>
 #app {
   text-align: left;
+}
+
+.character-details {
+  margin: 0 0 1rem 0;
 }
 </style>
