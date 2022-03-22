@@ -25,6 +25,10 @@ Changelog
 22-03-2022 - Verion 0.0.6:
 - Added placeholder for reset button
 
+22-03-2022 - Verion 0.0.7:
+- Removed unnecessary plugin vue-axios
+- Moved the feed to it's own component Feed.vue
+
 
 
 # game-of-thrones

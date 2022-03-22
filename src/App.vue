@@ -2,14 +2,16 @@
   <div id="app">
     <HelloWorld msg="Winter is coming"/>
 
+    <!-- <pre>{{ characters }}</pre> -->
+
     <div class="filters">
       Gender: 
-      <select v-model="selectedGender" class="inputSelect">
+      <select class="inputSelect">
         <option v-for="gender in genders" v-bind:key="gender.id">{{ gender.name }}</option>
       </select>
 
       IsAlive: 
-      <select v-model="selectedIsAlive" class="inputSelect">
+      <select class="inputSelect">
         <option v-for="alive in isAlive" v-bind:key="alive.id">{{ alive.name }}</option>
       </select>
 
@@ -18,23 +20,16 @@
       </button>
     </div>
 
-    <ol>
-      <li v-for="character in characters" v-bind:key="character.id" class="character-details">
-        <ul>
-          <li v-if="character.name">Name: {{ character.name }}</li>
-          <li v-if="character.gender">Gender: {{ character.gender }}</li>
-          <li v-if="!character.died">Is alive: Yes</li>
-          <li v-else>Is alive: No ( died {{ character.died }} )</li>
-        </ul>
-      </li>  
-    </ol>
+    <Feed 
+      :characters="characters"
+    />
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import Feed from './components/Feed.vue'
 import axios from "axios";
-// import vueAxios from "vue-axios";
 
 export default {
   name: 'App',
@@ -57,25 +52,14 @@ export default {
   },
   mounted(){
     axios
-      .get('https://anapioficeandfire.com/api/characters?page=1&pageSize=40')
-      .then((response)=>{
-        this.characters=response.data;
-        console.warn(response)
-      })
+      .get('https://anapioficeandfire.com/api/characters?page=1&pageSize=10')
+      .then(response => (this.characters = response.data))
+      .catch(error => console.log(error))
   },
   components: {
-    HelloWorld
-  },
-  methods: {
-    filterOnGender() {
-
-    }
-  },
-
-  created() {
-    
+    HelloWorld,
+    Feed
   }
-  
 };
 </script>
 
