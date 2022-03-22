@@ -22,6 +22,9 @@ Changelog
 22-03-2022 - Verion 0.0.5:
 - Generate options in filter dropdowns from data
 
+22-03-2022 - Verion 0.0.6:
+- Added placeholder for reset button
+
 
 
 # game-of-thrones

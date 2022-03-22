@@ -4,14 +4,18 @@
 
     <div class="filters">
       Gender: 
-      <select v-model="selectedGender">
+      <select v-model="selectedGender" class="inputSelect">
         <option v-for="gender in genders" v-bind:key="gender.id">{{ gender.name }}</option>
       </select>
 
       IsAlive: 
-      <select v-model="selectedIsAlive">
+      <select v-model="selectedIsAlive" class="inputSelect">
         <option v-for="alive in isAlive" v-bind:key="alive.id">{{ alive.name }}</option>
       </select>
+
+      <button class="resetFilter button filterButton">
+        Reset filters
+      </button>
     </div>
 
     <ol>
@@ -63,7 +67,9 @@ export default {
     HelloWorld
   },
   methods: {
-    
+    filterOnGender() {
+
+    }
   },
 
   created() {
@@ -80,5 +86,14 @@ export default {
 
 .character-details {
   margin: 0 0 1rem 0;
+}
+
+.filterButton {
+  margin: 0 0 0 1rem;
+}
+
+.button:hover,
+.inputSelect:hover {
+  cursor: pointer;
 }
 </style>
