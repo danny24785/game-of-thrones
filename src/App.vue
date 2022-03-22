@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Winter is coming"/>
+    <AppTitle msg="Winter is coming"/>
 
     <!-- <pre>{{ characters }}</pre> -->
 
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AppTitle from './components/AppTitle.vue'
 import Feed from './components/Feed.vue'
 import axios from "axios";
 
@@ -57,7 +57,7 @@ export default {
       .catch(error => console.log(error))
   },
   components: {
-    HelloWorld,
+    AppTitle,
     Feed
   }
 };

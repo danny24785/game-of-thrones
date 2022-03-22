@@ -29,6 +29,9 @@ Changelog
 - Removed unnecessary plugin vue-axios
 - Moved the feed to it's own component Feed.vue
 
+22-03-2022 - Verion 0.0.8:
+- Changed HelloWorld to Apptitle
+
 
 
 # game-of-thrones
