@@ -1,3 +1,14 @@
+Changelog
+---------
+
+22-03-2022 - Verion 0.0.1:
+- Added Changelog 
+- Feed added
+- Installed vue-axios
+
+
+
+
 # game-of-thrones
 
 ## Project setup
