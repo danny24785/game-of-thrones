@@ -19,6 +19,9 @@ Changelog
 - Added location and date of death in parentheses if IsAlive = no
 - Added Gender and IsAlive dropdown placeholders for filters
 
+22-03-2022 - Verion 0.0.5:
+- Generate options in filter dropdowns from data
+
 
 
 # game-of-thrones

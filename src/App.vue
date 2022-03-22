@@ -4,16 +4,13 @@
 
     <div class="filters">
       Gender: 
-      <select>
-        <option>Male</option>
-        <option>Female</option>
-        <option>Not specified</option>
+      <select v-model="selectedGender">
+        <option v-for="gender in genders" v-bind:key="gender.id">{{ gender.name }}</option>
       </select>
 
       IsAlive: 
-      <select>
-        <option>Yes</option>
-        <option>No</option>
+      <select v-model="selectedIsAlive">
+        <option v-for="alive in isAlive" v-bind:key="alive.id">{{ alive.name }}</option>
       </select>
     </div>
 
@@ -39,7 +36,19 @@ export default {
   name: 'App',
   data(){
     return {
-      characters: undefined
+      // Feed
+      characters: undefined,
+      
+      // Filters
+      genders: [
+        {id: 1, name: 'Male'},
+        {id: 2, name: 'Female'},
+        {id: 3, name: 'Not specified'}
+      ],
+      isAlive: [
+        {id: 1, name: 'Yes'},
+        {id: 2, name: 'No'}
+      ]
     }
   },
   mounted(){
