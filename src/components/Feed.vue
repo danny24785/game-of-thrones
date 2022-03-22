@@ -3,7 +3,7 @@
       <li v-for="character in characters" v-bind:key="character.id" class="character-details">
         <ul>
           <li v-if="character.name">Name: {{ character.name }}</li>
-          <li v-if="character.gender">Gender: {{ character.gender }}</li>
+          <li>Gender: {{ character.gender }}</li>
           <li v-if="!character.died">Is alive: Yes</li>
           <li v-else>Is alive: No ( died {{ character.died }} )</li>
         </ul>

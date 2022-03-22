@@ -2,16 +2,16 @@
   <div id="app">
     <AppTitle msg="Winter is coming"/>
 
-    <!-- <pre>{{ characters }}</pre> -->
-
     <div class="filters">
       Gender: 
-      <select class="inputSelect">
+      <select class="inputSelect" @change="selectedGender()">
+        <option selected disabled>Select gender</option>
         <option v-for="gender in genders" v-bind:key="gender.id">{{ gender.name }}</option>
       </select>
 
       IsAlive: 
       <select class="inputSelect">
+        <option selected disabled>Select isAlive</option>
         <option v-for="alive in isAlive" v-bind:key="alive.id">{{ alive.name }}</option>
       </select>
 
@@ -29,20 +29,18 @@
 <script>
 import AppTitle from './components/AppTitle.vue'
 import Feed from './components/Feed.vue'
-import axios from "axios";
 
 export default {
   name: 'App',
   data(){
     return {
       // Feed
-      characters: undefined,
+      characters: [],
       
       // Filters
       genders: [
         {id: 1, name: 'Male'},
-        {id: 2, name: 'Female'},
-        {id: 3, name: 'Not specified'}
+        {id: 2, name: 'Female'}
       ],
       isAlive: [
         {id: 1, name: 'Yes'},
@@ -50,15 +48,21 @@ export default {
       ]
     }
   },
-  mounted(){
-    axios
-      .get('https://anapioficeandfire.com/api/characters?page=1&pageSize=10')
-      .then(response => (this.characters = response.data))
-      .catch(error => console.log(error))
-  },
   components: {
     AppTitle,
     Feed
+  },
+  created() {
+    let apiLink = 'https://anapioficeandfire.com/api/characters?page=1&pageSize=10';
+    fetch(apiLink)
+      .then(res => res.json())
+      .then(res => (this.characters = res))
+      .catch(error => console.log(error));
+  },
+  watch: {
+    selectedGender() {
+      this.characters = this.characters + '&gender=Female'
+    }
   }
 };
 </script>

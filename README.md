@@ -32,6 +32,9 @@ Changelog
 22-03-2022 - Verion 0.0.8:
 - Changed HelloWorld to Apptitle
 
+22-03-2022 - Verion 0.0.9:
+- removed dependence of axios plugin
+
 
 
 # game-of-thrones
