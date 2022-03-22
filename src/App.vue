@@ -2,7 +2,7 @@
   <div id="app">
     <HelloWorld msg="Winter is coming"/>
     <pre>
-    {{ characters }}
+    <!-- {{ characters }} -->
     </pre>
     <ul v-for="character in characters" v-bind:key="character.id">
       <li>Name: {{ character.name }}</li>

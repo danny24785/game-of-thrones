@@ -6,6 +6,9 @@ Changelog
 - Feed added
 - Installed vue-axios
 
+22-03-2022 - Verion 0.0.2:
+- Commented out feed
+
 
 
 
