@@ -23,6 +23,8 @@
     <Feed 
       :characters="characters"
     />
+
+    <button @click="nextPage()">Next ({{ currentPage }})</button>
   </div>
 </template>
 
@@ -36,6 +38,11 @@ export default {
     return {
       // Feed
       characters: [],
+      apiUrl: 'https://anapioficeandfire.com/api/characters',
+      currentPagePrefix: '?page=',
+      currentPage: 1,
+      pageSizePrefix: '&pageSize=',
+      pageSize: 10,
       
       // Filters
       genders: [
@@ -53,7 +60,7 @@ export default {
     Feed
   },
   created() {
-    let apiLink = 'https://anapioficeandfire.com/api/characters?page=1&pageSize=10';
+    let apiLink = this.apiUrl + this.currentPagePrefix + this.currentPage + this.pageSizePrefix + this.pageSize;
     fetch(apiLink)
       .then(res => res.json())
       .then(res => (this.characters = res))
@@ -62,6 +69,11 @@ export default {
   watch: {
     selectedGender() {
       this.characters = this.characters + '&gender=Female'
+    }
+  },
+  methods: {
+    nexPage() {
+      this.currentPage = this.currentPage + 1;
     }
   }
 };

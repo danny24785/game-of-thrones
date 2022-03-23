@@ -35,6 +35,9 @@ Changelog
 22-03-2022 - Verion 0.0.9:
 - removed dependence of axios plugin
 
+23-03-2022 - Verion 0.1.0:
+- Devided link url up in different parts to make calculations with pages and maxpage possible in the future
+
 
 
 # game-of-thrones
